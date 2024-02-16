@@ -4,8 +4,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 
-const port = process.env.REACT_APP_PORT_NO;
-const serverIp = process.env.REACT_APP_SERVER_IP;
+const serverIp = "http://localhost:8080";
 
 function Login(){
     const [username, setUsername] = useState("");
