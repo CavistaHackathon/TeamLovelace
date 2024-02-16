@@ -1,7 +1,7 @@
 import {Routes, Route} from 'react-router-dom'
 // import Login from './Login'
 import Home from './Home';
-
+import Login from './Login';
 function Forwarding(){
     return (
         <>
@@ -20,7 +20,7 @@ function Forwarding(){
                 </div>
             </nav>
             <Routes>
-                <Route path="/" element={<Home/>}/>
+                <Route path="/" element={<Login/>}/>
             </Routes>
         </>
     )
