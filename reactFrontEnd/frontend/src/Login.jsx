@@ -18,6 +18,7 @@ function Login(){
         setPass(e.target.value);
     }
 
+
     // const sendLoginDetails =()=>{
     //     const payload = {"username":username, "pass":pass}
     //     axios.post(serverUrl + "/user/login", payload);
@@ -33,7 +34,10 @@ function Login(){
                 <br></br>
                 <input className="searchBox" type="password" value={pass} name="pass" placeholder="Password" onChange={onPassChange} />
                 <br></br>
-                <button className="LinkedInFreeTrail" > Login</button>
+                <button className="LinkedInFreeTrail" onClick={()=>{
+                    const payload={"username":username ,"pass":pass}
+                    axios.post("http://localhost:8080/user/login",payload).then(Response.redirect("/Home")).catch(Response.redirect("/Login"));
+                }} >Login</button>
                 <br></br>
                 <p className="myfont greyText"> Haven't registered with us yet?{" "}
                     <Link to="/Register">
