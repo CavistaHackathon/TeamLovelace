@@ -21,10 +21,12 @@ import com.app.dto.loginDto;
 import com.app.dto.userDto;
 import com.app.service.HomeAppointmentService;
 import com.app.service.UserService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(methods = RequestMethod.POST,origins = "*")
+@CrossOrigin(origins = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
 public class UserController {
 
     @Autowired 
@@ -63,6 +65,12 @@ public class UserController {
     public HomeAppointment addAppointment(@RequestBody AppointmentDTO add){
         return appointmentService.addAppointment(add);
     }
+
+    @GetMapping("/getCurrentSession")
+    public String getMethodName() {
+        return new String(session.getAttribute("name").toString());
+    }
+    
 
 
         
