@@ -1,3 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.css';
+import '../src/Home.css'
+
 function Home(){
     return (
         <>
