@@ -4,8 +4,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 
-const port = process.env.REACT_APP_PORT_NO;
-const serverIp = process.env.REACT_APP_SERVER_IP;
+const serverIp = "http://localhost:8080";
 
 function Login(){
     const [username, setUsername] = useState("");
@@ -18,10 +17,10 @@ function Login(){
         setPass(e.target.value);
     }
 
-    // const sendLoginDetails =()=>{
-    //     const payload = {"username":username, "pass":pass}
-    //     axios.post(serverUrl + "/user/login", payload);
-    // }
+    const sendLoginDetails =()=>{
+        const payload = {"username":username, "pass":pass}
+        axios.post(serverIp+"/user/login", payload);
+    }
 
 
     return(
@@ -33,7 +32,7 @@ function Login(){
                 <br></br>
                 <input className="searchBox" type="password" value={pass} name="pass" placeholder="Password" onChange={onPassChange} />
                 <br></br>
-                <button className="LinkedInFreeTrail" > Login</button>
+                <button className="LinkedInFreeTrail" onClick={sendLoginDetails}> Login</button>
                 <br></br>
                 <p className="myfont greyText"> Haven't registered with us yet?{" "}
                     <Link to="/Register">
