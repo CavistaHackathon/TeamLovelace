@@ -12,5 +12,4 @@ import com.app.Entites.UserDetails;
 public interface appointment extends JpaRepository <HomeAppointment,Integer>{
 //@Query(name="select * from home_appointment where user_id =:id",nativeQuery = true)
     List<HomeAppointment> findAllByUserId(UserDetails user);
-    
 }
