@@ -1,32 +1,31 @@
-package com.app.Entites;
+package com.app.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Table;
 
+import com.app.Entites.RoleEnum;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="users")
-public class UserDetails extends BaseEntity {
-  @Column
+@ToString
+
+public class userDto {
+    @JsonProperty("username")
   public String userName;
-  @Column
-  public String pass;
-  @Column(length = 10)
+  @JsonProperty("password")
+  public String password;
+  @JsonProperty("mobilenumber")
   public String mobileNumber;
-
-  @Enumerated(EnumType.STRING)
+    @JsonProperty("role")
   public RoleEnum role;
-
 }

@@ -1,5 +1,8 @@
 package com.app.Entites;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import lombok.AllArgsConstructor;
@@ -13,5 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
 }

@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/team")
+public class TeamController {
     public String loginAdmin(String username,String password,String role){
         return "redirect succesfully";
         //redicrect to home page
