@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "*",methods = {RequestMethod.DELETE,RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class UserController {
 
     @Autowired 
@@ -68,12 +68,14 @@ public class UserController {
     }
 
     @GetMapping("/getCurrentSession")
-    public sessionDto getMethodName() {
+    public String getMethodName() {
+        System.out.println("\n\n REQ\n\n");
         sessionDto dto=new sessionDto();
         dto.setId(Integer.parseInt(session.getAttribute("id").toString()));
         dto.setName(session.getAttribute("name").toString());
 
-        return dto;
+        // return dto.toString();
+        return "laskdfjlsa";
     }
 
     
