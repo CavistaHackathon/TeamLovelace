@@ -5,7 +5,7 @@ FROM node:16
 WORKDIR /app
 
 # Copy package.json and package-lock.json (or yarn.lock) to the container
-COPY package*.json ./
+COPY reactFrontEnd/frontend/package*.json ./
 
 # Install project dependencies
 RUN npm install
