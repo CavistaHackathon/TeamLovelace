@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
-
 
 const serverIp = "http://localhost:8080";
 
 function Login(){
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [pass, setPass] = useState("");
     const onUsernameChange = (e)=>{
@@ -18,10 +18,10 @@ function Login(){
     }
 
 
-    // const sendLoginDetails =()=>{
-    //     const payload = {"username":username, "pass":pass}
-    //     axios.post(serverUrl + "/user/login", payload);
-    // }
+    const sendLoginDetails =()=>{
+        const payload = {"username":username, "pass":pass}
+        axios.post(serverIp + "/user/login", payload).then((resp)=>{navigate('/Dashboard')});
+    }
 
 
     return(
@@ -33,10 +33,7 @@ function Login(){
                 <br></br>
                 <input className="searchBox" type="password" value={pass} name="pass" placeholder="Password" onChange={onPassChange} />
                 <br></br>
-                <button className="LinkedInFreeTrail" onClick={()=>{
-                    const payload={"username":username ,"pass":pass}
-                    axios.post("http://localhost:8080/user/login",payload).then(Response.redirect("/Home")).catch(Response.redirect("/Login"));
-                }} >Login</button>
+                <button className="LinkedInFreeTrail" onClick={sendLoginDetails} >Login</button>
                 <br></br>
                 <p className="myfont greyText"> Haven't registered with us yet?{" "}
                     <Link to="/Register">
