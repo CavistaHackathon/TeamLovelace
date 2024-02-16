@@ -18,6 +18,7 @@ import com.app.Entites.HomeAppointment;
 import com.app.Entites.UserDetails;
 import com.app.dto.AppointmentDTO;
 import com.app.dto.loginDto;
+import com.app.dto.sessionDto;
 import com.app.dto.userDto;
 import com.app.service.HomeAppointmentService;
 import com.app.service.UserService;
@@ -67,9 +68,14 @@ public class UserController {
     }
 
     @GetMapping("/getCurrentSession")
-    public String getMethodName() {
-        return new String(session.getAttribute("name").toString());
+    public sessionDto getMethodName() {
+        sessionDto dto=new sessionDto();
+        dto.setId(Integer.parseInt(session.getAttribute("id").toString()));
+        dto.setName(session.getAttribute("name").toString());
+
+        return dto;
     }
+
     
 
 
